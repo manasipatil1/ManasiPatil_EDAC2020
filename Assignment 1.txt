@@ -1,0 +1,398 @@
+Name- Manasi Nitin Patil
+ID-200940381043
+----------------------------------------------------------------------------------------------------
+
+Q.1
+class World
+{
+public static void main(String args[])
+{
+System.out.println("Hello World");
+}
+}
+----------------------------------------------------------------------------------------------------
+Q2
+
+class Roll
+{
+public static void main(String args[])
+{
+int rollNo=100;
+System.out.println("roll no = "+rollNo);
+}
+}
+
+--------------------------------------------------------------------------------------------------------
+Q3
+
+import java.util.*;
+class Primitive
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter values for x ");
+int x=sc.nextInt();
+double z,y;
+System.out.println("Enter values for p q ");
+boolean p=sc.nextBoolean();
+boolean q=sc.nextBoolean();
+boolean s;
+y=Math.pow(x,2)+3*x-7;
+System.out.println("A."+y);
+y=x++ + ++x;
+System.out.println("Y = "+y+" X = "+x);
+z=x++ - --y - --x + x++;
+System.out.println("X = "+x+" Y = "+y+" Z= "+z);
+s= (p&&q)||!(p||q);
+System.out.println(s);
+}
+
+}
+---------------------------------------------------------------------------------------------
+Q4
+
+import java.util.*;
+class Byte
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter value of a & b"); 
+byte a=sc.nextByte();
+byte b=sc.nextByte();
+byte c;
+c=(byte)(a+b);
+System.out.println("Sum of two Byte variable: " + c );
+}
+
+}
+
+----------------------------------------------------------------------------------------
+Q5
+class Commandline{
+
+public static void main(String args[])
+{
+
+System.out.println("Welecome "+args[0]);
+
+}
+
+}
+-------------------------------------------------------------------------------------------
+Q6
+import java.util.*;
+class Radius
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+double r=sc.nextDouble();
+final double Pi=3.14;
+double Area,Perimeter;
+Area=Pi*Math.pow(r,2);
+Perimeter=2*Pi*r;
+System.out.println("Area:"+Area);
+System.out.println("Perimeter:"+Perimeter);
+}
+}
+
+
+----------------------------------------------------------------------------------------------
+Q7
+import java.util.*;
+class Percentage
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner (System.in);
+System.out.println("Please enetr obtain marks out of 100 for subjects\n1.Maths\n2.Oop\n3.Spa\n4.Bee\n5.Dbms");
+int Maths=sc.nextInt();
+int Oop=sc.nextInt();
+int Spa=sc.nextInt();
+int Bee=sc.nextInt();
+int Dbms=sc.nextInt();
+int outOfMarks=500;
+double Percentage;
+int totalMarks;
+totalMarks=Maths+Oop+Spa+Bee+Dbms;
+System.out.println("Total Sum of marks obtain " + totalMarks);
+Percentage=(totalMarks*100)/outOfMarks;
+System.out.println("Total Percentage " + Percentage + "%");
+}
+}
+--------------------------------------------------------------------------------------------------------
+Q8.
+import java.util.*;
+class SimpleIntrest{
+
+public static void main(String args[])
+{
+
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter principle amount");
+Double Pamount=sc.nextDouble();
+System.out.println("Enter rate of intrest");
+int Rintrest=sc.nextInt();
+System.out.println("Enter time in years");
+int time=sc.nextInt();
+doouble Sintrest;
+
+Sintrest=(Pamount*Rintrest*time)/100;
+
+System.out.println("Simple intrest = "+Sintrest);
+}
+
+}
+
+------------------------------------------------------------------------------
+Q9
+import java.util.*;
+class Days{
+
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+int n,week,year,day;
+System.out.println("Enter number of Days");
+n=sc.nextInt();
+year=n/365;
+n=n%365;
+System.out.println("Number of Years "+year);
+week=n/7;
+n=n%7;
+System.out.println("Number of Weeks "+week);
+day=n;
+System.out.println("Number of Days "+day);
+
+}
+}
+
+----------------------------------------------------------------------
+Q10
+
+import java.util.*;
+class Temp{
+
+public static void main(String args[])
+{
+
+Scanner sc=new Scanner(System.in);
+System.out.println("enter a temprature");
+int c=sc.nextInt();
+int F;
+ F=((c*9)/5)+32;
+System.out.println("temprature to Fahrenheit "+ F);
+
+}
+
+}
+-----------------------------------------------------------------------------------------
+
+Q11
+
+import java.util.Scanner;
+class Swap {
+    public static void main (String args[])
+    {
+System.out.println("ENTER  NUMBER:");
+        Scanner ac=new Scanner(System.in);
+        int x=ac.nextInt();
+        int y=ac.nextInt();
+
+        System.out.println("NUMBERS BEFORE SWAPING:"+"X= "+x+","+"Y= "+y);
+        x=x+y;
+        y=x-y;
+        x=x-y;
+     System.out.println("NUMBERS AFTER SWAPING:"+"X= "+x+","+"Y= "+y);
+
+ }
+    }
+
+
+
+
+----------------------------------------------------------------------------------------------
+Q12
+
+import java.util.*;
+class Company{
+
+public static void main(String args[])
+{
+
+Scanner sc=new Scanner(System.in);
+System.out.println("enter your salary");
+double Bsal=sc.nextDouble();
+double hRA,dA,GS;
+if(Bsal<10000)
+{
+
+hRA=1000;
+dA=(Bsal*90)/100;
+GS= Bsal + dA + hRA;
+System.out.println("Gross salary of employee is :: "+ GS);
+
+}
+else
+{
+hRA=2000;
+dA=(Bsal*98)/100;
+GS= Bsal + dA + hRA;
+System.out.println("Gross salary of employee is :: "+ GS);
+
+
+}
+
+}
+
+}
+
+
+--------------------------------------------------------------------------------------
+Q13 
+/*Using ternary operator*/
+
+import java.util.*;
+class LargestThreeT{
+
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter three numbers:");
+int a=sc.nextInt();
+int b=sc.nextInt();
+int c=sc.nextInt();
+int large1,large;
+large1= a < b ? b:a;
+      large = c < large1 ? large1:c;
+      System.out.println("Largest number is : "+large);
+}
+}
+
+
+------------------------------------------------------------------------------
+Q13
+using if else
+
+import java.util.*;
+class LargestThree{
+
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter three numbers:");
+int a=sc.nextInt();
+int b=sc.nextInt();
+int c=sc.nextInt();
+int large=a;
+if(b>large)
+{
+large=b;
+if(c>large)
+{
+System.out.println("Largest of three numbers is = "+ c);
+}
+else
+{
+System.out.println("Largest of three numbers is = "+ b);
+} 
+}
+if(b<large)
+{
+if(c>large)
+{
+large=c;
+System.out.println("Largest of three numbers is = "+ large);
+}
+else{
+System.out.println("Largest of three numbers is = "+ large);
+}
+}
+}
+}
+
+-----------------------------------------------------------------------------------
+Q14
+
+import java.util.*;
+class Leap{
+
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter year");
+int year=sc.nextInt();
+if(year % 4 == 0)
+        {
+            if( year % 100 == 0)
+            {
+                
+                if ( year % 400 == 0)
+                    System.out.println(year + " is a leap year.");
+
+                else
+                     System.out.println(year + " is not a leap year.");
+            }
+            else
+                System.out.println(year + " is a leap year.");
+        }
+        else
+             System.out.println(year + " is not a leap year.");
+
+       
+}
+
+}
+------------------------------------------------------------------------------------
+Q15
+
+import java.util.Scanner;
+class Marriage
+{
+    public static void main(String args[])
+{
+
+ Scanner sc=new Scanner(System.in);
+ System.out.println("Enter Gender:\n1 Male \n2 Female");
+ //char ch=sc.next().charAt(0);
+String Gender=sc.nextLine();
+
+ 
+switch(Gender)
+{
+case "Male": System.out.println("Enter age:");
+ int age=sc.nextInt();
+ if(age >= 21 && age<40)
+{
+
+System.out.println("the person is eligible for marriage");
+}
+else{
+System.out.println("the person is not eligible for marriage");
+}
+case "Female" :
+System.out.println("Enter age:");
+ int age1=sc.nextInt();
+ if(age1 < 18 || age1>=35)
+ {
+     System.out.println("the person is not eligible for marriage");
+ }
+else{
+     System.out.println("the person is eligible for marriage");
+ }
+
+}
+}
+}
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
