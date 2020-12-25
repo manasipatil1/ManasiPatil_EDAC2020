@@ -1,0 +1,197 @@
+Name- Manasi Nitin Patil
+ID-200940381043
+
+Employee Table
+emp_id  emp_name dept_id    salary    manager 
+1	Arun	1	8000	4
+2	Kiran	1	7000	1
+3	Scott	1	3000	1
+4	Max	2	9000	
+5	Jack	2	8000	4
+6	King		6000	1
+
+*******************************
+Department table:-
+dept_id  dept_name
+1	Finance
+2	Training
+3	Marketing
+
+
+************joins*****************
+1. select dept_name and emp_name where dept_id is same.
+query:-select dept_name,emp_name from employee e  join department d on e.dept_id=d.dept_id ;
+Op:-
+dept_name               emp_name
+Finance		        Arun
+Finance		        Kiran
+Finance		        Scott
+Training		Max
+Training		Jack
+--------------------------------------------------------------
+2. select all from both tables where dept_id is same.
+Query:-select * from employee e  join department d on e.dept_id=d.dept_id ;
+Op:-
+emp_id  emp_name dept_id    salary    manager     dept_id     department
+1	Arun	1	8000	4	1	Finance
+2	Kiran	1	7000	1	1	Finance
+3	Scott	1	3000	1	1	Finance
+4	Max	2	9000		2	Training
+5	Jack	2	8000	4	2	Training
+------------------------------------------------------------------------------------------------------
+3. select dept_id and sum of salary group it by dept_id.
+select dept_id,sum(salary) from employee group by dept_id;
++---------+-------------+
+| dept_id | sum(salary) |
++---------+-------------+
+|    NULL |        6000 |
+|       1 |       18000 |
+|       2 |       24000 |
++---------+-------------+
+------------------------------------------------------------------------------------------------
+4. select dept_name and emp_name apply right outer join and left outer join.
+RIGHT OUTER JOIN
+select emp_name,dept_name from employee right outer join department on employee.dept_id=department.dept_id;
++----------+-----------+
+| emp_name | dept_name |
++----------+-----------+
+| Arun     | Finance   |
+| Kiran    | Finance   |
+| Scott    | Finance   |
+| Max      | Training  |
+| Jack     | Training  |
+| NULL     | Marketing |
++----------+-----------+
+*************************************************
+LEFT OUTER JOIN
+ select emp_name,dept_name from employee left outer join department on employee.dept_id=department.dept_id;
++----------+-----------+
+| emp_name | dept_name |
++----------+-----------+
+| Arun     | Finance   |
+| Kiran    | Finance   |
+| Scott    | Finance   |
+| Max      | Training  |
+| Jack     | Training  |
+| King     | NULL      |
++----------+-----------+
+
+---------------------------------------------------------------------------------------------------------------
+5. select emp_name with their respective manager names.
+ select e1.emp_name ,e.emp_name as manager from employee e join employee e1 on e.empid=e1.manager;
++----------+---------+
+| emp_name | manager |
++----------+---------+
+| Arun     | Max     |
+| Kiran    | Arun    |
+| Scott    | Arun    |
+| Jack     | Max     |
+| King     | Arun    |
++----------+---------+
+------------------------------------------------------------------------------------------------------
+6. select epm_name with their respective department names.
+select e.emp_name,d.dept_name from employee e join department d on e.dept_id=d.dept_id;
++----------+-----------+
+| emp_name | dept_name |
++----------+-----------+
+| Arun     | Finance   |
+| Kiran    | Finance   |
+| Scott    | Finance   |
+| Max      | Training  |
+| Jack     | Training  |
++----------+-----------+
+------------------------------------------------------------------------------------------------------Subqueries----------------------------------------------------
+
+1. select employee having  same salary as 'Arun'.
+Ouery:-select * from employee where salary=(select salary from employee where emp_name='Arun') and 
+emp_name!='Arun';
+OP:-
+emp_id  emp_name dept_id    salary    manager
+5	Jack	2	8000	4
+--------------------------------------------------------------
+2. select employee belonging to same dept as 'jack'.
+Query:-select emp_name from employee where dept_id =(select dept_id from employee where emp_name="jack") and emp_name!='jack';
+OP:-
+emp_id  emp_name dept_id    salary    manager
+4	Max	2	9000	
+--------------------------------------------------------------------------
+3. select name of employee havin lowest salary.
+query:-select emp_name from employee where salary=(select min(salary)from employee);
+Op:-
+emp_name
+Scott
+--------------------------------------------------------------------------------------
+4. update salary =15000 of employees belonging to same dept as 'Max'.
+query:-
+update employee set salary=15000 where
+dept_id=(select dept_id from(select dept_id from employee where emp_name='max')a) and emp_name!="max";
+Output:-
+emp_id  emp_name dept_id    salary    manager
+1	Arun	1	8000	4
+2	Kiran	1	7000	1
+3	Scott	1	3000	1
+4	Max	2	9000	
+5	Jack	2	15000	4
+6	King		6000	1
+----------------------------------------------------------------------------------------------------------Union-----------------------------
+create table emp1 (emp_no int primary key,emp_name varchar(20));
+create table emp2 (emp_no int primary key,emp_name varchar(20));
+----------------------------------------
+insert into emp1(emp_no,emp_name)values(1,'A'),(2,'B'),(3,'C');
+ insert into emp2(emp_no,emp_name)values(1,'A'),(2,'B'),(4,'D'),(5,'E');
+---------------------------------------------------------------------------
+mysql> SELECT * FROM EMP1;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+|      1 | A        |
+|      2 | B        |
+|      3 | C        |
++--------+----------+
+
+mysql> SELECT * FROM EMP2;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+|      1 | A        |
+|      2 | B        |
+|      4 | D        |
+|      5 | E        |
++--------+----------+
+
+------------------------------------------------------------------------------
+ SELECT * from emp1 union  select * from emp2;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+|      1 | A        |
+|      2 | B        |
+|      3 | C        |
+|      4 | D        |
+|      5 | E        |
++--------+----------+
+
+--------------------------------union all
+ SELECT * from emp1 union all select * from emp2;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+|      1 | A        |
+|      2 | B        |
+|      3 | C        |
+|      1 | A        |
+|      2 | B        |
+|      4 | D        |
+|      5 | E        |
++--------+----------+
+--------------------------------------------------------------------------------------------
+1.select same data from both table.
+Query:-  select e.emp_no,e.emp_name from emp1 e join emp2 e2 on e.emp_no=e2.emp_no;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+|      1 | A        |
+|      2 | B        |
++--------+----------+
+--------------------------------------------------------------------
+
