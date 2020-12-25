@@ -1,0 +1,91 @@
+Name- Manasi Nitin Patil
+ID-200940381043
+
+create table  department( dept_id integer primary key,dept_name varchar(50));
+-----------------------------------------------------------------------------------------------------
+create table employee(empid int,emp_name varchar(30),dept_id integer,salary double ,manager int,
+constraint fk_empdep foreign key (dept_id) references department(dept_id));
+---------------------------------------
+insert into department values(1,"Finance");
+insert into department values(2,"Training");
+insert into department values(3,"Marketing");
+--------------------------------------------------------------------
+insert into employee values(1,'Arun',1,8000,4);
+insert into employee values(2,'Kiran',1,7000,1);
+insert into employee values(3,'Scott',1,3000,1);
+insert into employee(empid,emp_name,dept_id,salary) values(4,'Max',2,9000);
+insert into employee values(5,'Jack',2,8000,4);
+insert into employee(empid,emp_name,salary,manager) values(6,'King',6000,1);
+----------------------------------------------------------------------Order by:---------------------------------
+
+1. select all from authors sort ascending by author name.
+select * from authors order by aname;
+Op:-
+AUID        ANMAE                           EMAIL
+103	DAVAID HUNTER	HUNTER@HOTMAIL.COM
+106	ED. ROMANS	ROMANS@THESERVERSIDE.COM
+101	HERBERT SCHILD	HERBERT@YAHOO.COM
+102	JAMES GOODWILL	GOODWILL@HOTMAIL.COM
+105	KEVIN LONEY	LONEY@ORACLE.COM
+
+-----------------------
+2.select all from publishers sort descending by publisher name.
+select * from publishers order by pname desc;
+OP:-
+pubid        pname                     	 email                  			 		phone
+2	WROX			INFO@WROX.COM	
+1	WILLEY			WDT@VSNL.NET				91-11-23260877
+4	TECHMEDIA		BOOKS@TECHMEDIA.COM			91-11-33257660
+3	TATA MCGRAW-HILL	FEEDBACK@TATAMCGRAWHILL.COM	91-11-33333322
+-------------------------------------------------------------------------------Group by-------------------------------------------
+
+1. select all data and sum of salary from employee and group according to deptid.
+select dept_id,sum(salary) from employee group by dept_id;
+op
++---------+-------------+
+| dept_id | sum(salary) |
++---------+-------------+
+|    NULL |   6000 |
+|       1 |       18000 |
+|       2 |       17000 |
++---------+-------------+
+--------------------------------------
+2. select deptid and sum of salary where salary is greater than 17000 and group by deptid.
+
+select dept_id,sum(salary) from employee where salary >17000 group by dept_id;
+op:-Empty set (0.00 sec)
+------------------------------------------------------------------------Having------------------------
+1. select deptid and sum of salary where sum of salary is greater than 18000 and grup by deptid.  
+select dept_id,sum(salary) from employee  group by dept_id
+having sum(salary)>17000;
+OP:-
++---------+-------------+
+| dept_id | sum(salary) |
++---------+-------------+
+|       1 |       18000 |
++---------+-------------+
+
+2.select deptid and sum of salary where sum of salary is less than 20000 and grup by deptid.
+select dept_id,sum(salary) from employee  group by dept_id
+having sum(salary)<20000;
+op
++---------+-------------+
+| dept_id | sum(salary) |
++---------+-------------+
+|    NULL |        6000 |
+|       1 |       18000 |
+|       2 |       17000 |
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
